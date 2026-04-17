@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,8 @@
             --text-color: #f8fafc;
         }
 
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -76,8 +78,13 @@
         }
 
         @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .loading-text {
@@ -92,18 +99,22 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: transparent;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #334155;
             border-radius: 10px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent-color);
         }
     </style>
 </head>
+
 <body>
 
     <div id="loading-overlay">
@@ -121,7 +132,7 @@
 
         // CONFIGURATION: Replace with your direct PDF URL
         // Recommended: Cloudflare R2 or Supabase URL
-        const PDF_URL = 'YOUR_DIRECT_PDF_URL_HERE'; 
+        const PDF_URL = 'https://huggingface.co/datasets/UtkarshDugar/files/resolve/main/portfolio%202026_Aastha%20Charde%201%20(1).pdf';
 
         const container = document.getElementById('viewer-container');
         const loadingOverlay = document.getElementById('loading-overlay');
@@ -168,7 +179,7 @@
 
         async function renderPage(container, pdf, pageNum) {
             const page = await pdf.getPage(pageNum);
-            
+
             // Calculate scale for "Fill Width"
             const viewport = page.getViewport({ scale: 1 });
             const screenWidth = window.innerWidth;
@@ -204,4 +215,5 @@
         });
     </script>
 </body>
+
 </html>
